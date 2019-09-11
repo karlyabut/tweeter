@@ -1,0 +1,57 @@
+article {
+  border: 5px solid;
+  margin-top: 50px;
+  opacity: 0.8;
+}
+
+article.tweet span {
+  margin-top: 1em;
+}
+
+article.tweet span#userName {
+  float: left;
+  margin-left: 1em;
+}
+
+article.tweet span#tweeterName {
+  float: right;
+  margin-right: 1em;
+  color: #99ccff;
+  display: none;
+}
+
+article.tweet p {
+  margin-left: 1.5em;
+}
+
+article.tweet header {
+  height: 100px;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+
+article.tweet footer {
+  font-size: 0.7em;
+  padding: 10px;
+}
+
+article.tweet img {
+  float: left;
+}
+
+article.tweet div {
+  border-top: 5px solid;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* re position my icon (was set as left: 50% from nav.css) */
+article.tweet i {
+  left: 0px;
+}
+
+article.tweet div#tweetIcons {
+  border-top: 0px;
+  float: right;
+}

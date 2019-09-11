@@ -1,0 +1,23 @@
+section.new-tweet {
+  width: 100%;
+}
+textarea {
+  border: none;
+  outline: none;
+  background-color: #f4f1ec;
+  width: 100%;
+}
+div#textAreaBorder {
+  border-bottom: 5px solid;
+}
+div#btnAndSpan {
+  font-family: 'Bungee', cursive;
+  margin-top: 50px;
+}
+#submitBtn {
+  background-color: #4056A1;
+  color: #ffffff
+}
+span.counter {
+  float: right;
+}
