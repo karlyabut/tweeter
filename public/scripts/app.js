@@ -54,19 +54,10 @@ const createTweetElement = function(value) {
 }
 
 const renderTweets = function(tweets) {
-  // loops through tweets
   for(let tweet of tweets) {
     $(document).ready(()=> {
       $('#tweets-container').append(createTweetElement(tweet));
     })
   }
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
 }
-
-// const $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-// console.log($tweet); 
 renderTweets(data);
-// $('#tweets-container').append($tweet);

@@ -14,10 +14,15 @@ article.tweet span#userName {
 }
 
 article.tweet span#tweeterName {
+  /* opacity: 0.3; */
   float: right;
   margin-right: 1em;
   color: #99ccff;
   display: none;
+}
+
+article:hover span#tweeterName {
+  display: block;
 }
 
 article.tweet p {
