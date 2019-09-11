@@ -28,20 +28,26 @@
 //     }
 //   ]
 
+const escape = function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const createTweetElement = function(value) {
   const $tweet = `
     <article class="tweet">
     <header>
-      <img src="${value.user.avatars}">
-      <span id="userName">${value.user.name}</span>
-      <span id="tweeterName">${value.user.handle}</span>
+      <img src="${escape(value.user.avatars)}">
+      <span id="userName">${escape(value.user.name)}</span>
+      <span id="tweeterName">${escape(value.user.handle)}</span>
     </header>
 
-    <p>${value.content.text}</p>
+    <p>${escape(value.content.text)}</p>
 
     <footer>
       <div>
-        <span>${value.created_at}</span>
+        <span>${escape(value.created_at)}</span>
         <div id="tweetIcons">
           <i class="fas fa-flag fa-xs"></i>
           <i class="fas fa-retweet fa-xs"></i>
@@ -70,16 +76,15 @@ $(function() {
     } else if ($("#tweetTxtArea").val().length > 140) {
       alert("TOO LONG!");
     } else {
-      console.log("adgahdshdahdjjdh", $newTweetForm.val())
       $.ajax({
         url: "/tweets/",
         type: "POST",
-        data: $newTweetForm.serialize()
+        data: $newTweetForm.serialize(),
       })
       .then(response => {
-        // $('#tweets-container').append(createTweetElement(response));
-        console.log("Success!", response);
-        loadTweets();
+        $("#tweetTxtArea").val("");
+        $(".counter").text("140");
+        loadLastTweet();
       })
     }
   })
@@ -95,17 +100,25 @@ const loadTweets = async () => {
     })
     renderTweets(response);
   } catch (error) {
+
+  }
+}
+
+const loadLastTweet = async () => {
+  try {
+    const response = await $.ajax({
+      url: "http://localhost:8080/tweets",
+      type: "GET",
+      dataType: "JSON"
+    })
+    // console.log("====>", await response[response.length - 1]);
+    $(document).ready(()=> {
+      $('#tweets-container').prepend(createTweetElement(response[response.length - 1]));
+    })
+  } catch (error) {
     console.error(error);
   }
 }
 
-//Helper function for a valid tweet
-// const isUserInputValid = inputTweet => {
-//   inputTweet !== null,
-//   inputTweet !== undefined,
-//   inputTweet !== ""
-// }
 
 loadTweets();
-
-// console.log("asdasdasd", data);
