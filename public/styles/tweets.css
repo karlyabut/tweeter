@@ -21,9 +21,16 @@ article.tweet span#tweeterName {
   display: none;
 }
 
+/***** Hover effects ********/
+article:hover {
+  opacity: 1;
+  box-shadow: 10px 10px 5px #99ccff;
+}
+
 article:hover span#tweeterName {
   display: block;
 }
+/****************************/
 
 article.tweet p {
   margin-left: 1.5em;
