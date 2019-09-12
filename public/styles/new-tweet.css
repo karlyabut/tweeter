@@ -1,10 +1,12 @@
 section.new-tweet {
   width: 100%;
+  display: none;
 }
 textarea {
   border: none;
   outline: none;
-  background-color: #f4f1ec;
+  background-color: #1a1a1d;
+  color: #ffffff;
   width: 100%;
 }
 div#textAreaBorder {
@@ -15,7 +17,7 @@ div#btnAndSpan {
   margin-top: 50px;
 }
 #submitBtn {
-  background-color: #4056A1;
+  background-color: #c3073f;
   color: #ffffff
 }
 span.counter {

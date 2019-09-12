@@ -1,9 +1,6 @@
 header#profileHeader {
-  height: 400px;
-  width: 100%;
-  margin-top: 120px;
-  background-color: #84ceeb;
-  background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+  background-color: #4e4e50;
+  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
 }
 
 div#imgHeader {

@@ -18,14 +18,14 @@ article.tweet span#tweeterName {
   /* opacity: 0.3; */
   float: right;
   margin-right: 1em;
-  color: #99ccff;
+  color: #c3073f;
   display: none;
 }
 
 /***** Hover effects ********/
 article:hover {
   opacity: 1;
-  box-shadow: 10px 10px 5px #99ccff;
+  box-shadow: 10px 10px 5px #c3073f;
 }
 
 article:hover span#tweeterName {

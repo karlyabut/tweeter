@@ -2,18 +2,31 @@ nav {
   position: fixed;
   top: 0;
   height: 120px;
-  background-color: #4056A1;
   color: #ffffff;
   width: 100%;
   z-index: 1;
 }
+
+span.navT, #navR {
+  color: #c3073f;
+}
+
+span#navW {
+  color: #950740;
+}
+
+span.navE {
+  color: #6f2232;
+}
+
 div#navContent {
   position: fixed;
   top: 1.5em;
   left: 1.5em;
   right: 1.5em;
 }
-span#navTitle {
+
+span.navTitle {
   font-size: 150%;
 }
 div#writeTweet {
@@ -29,7 +42,7 @@ i {
 
 /* sets a new color to arrow on <div> hover */
 div#writeTweet:hover i {
-  color: #99ccff;
+  color: #ffffff;
 }
 
 div#navWriteTweet{
