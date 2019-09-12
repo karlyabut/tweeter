@@ -26,6 +26,12 @@ i {
   color: red;
   left: 50%;
 }
+
+/* sets a new color to arrow on <div> hover */
+div#writeTweet:hover i {
+  color: #99ccff;
+}
+
 div#navWriteTweet{
   right: -40px;
 }

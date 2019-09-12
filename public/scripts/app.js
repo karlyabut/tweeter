@@ -3,30 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// const data = [
-//     {
-//       "user": {
-//         "name": "Newton",
-//         "avatars": "https://i.imgur.com/73hZDYK.png",
-//         "handle": "@SirIsaac"
-//       },
-//       "content": {
-//         "text": "If I have seen further it is by standing on the shoulders of giants"
-//       },
-//       "created_at": 1461116232227
-//     },
-//     {
-//       "user": {
-//         "name": "Descartes",
-//         "avatars": "https://i.imgur.com/nlhLi3I.png",
-//         "handle": "@rd" 
-//       },
-//       "content": {
-//         "text": "Je pense , donc je suis"
-//       },
-//       "created_at": 1461113959088
-//     }
-//   ]
 
 const escape = function(str) {
   let div = document.createElement('div');
@@ -43,7 +19,7 @@ const createTweetElement = function(value) {
       <span id="tweeterName">${escape(value.user.handle)}</span>
     </header>
 
-    <p>${escape(value.content.text)}</p>
+    <p><span>${escape(value.content.text)}</span></p>
 
     <footer>
       <div>
@@ -62,7 +38,7 @@ const createTweetElement = function(value) {
 const renderTweets = function(tweets) {
   for(let tweet of tweets) {
     $(document).ready(()=> {
-      $('#tweets-container').append(createTweetElement(tweet));
+      $('#tweets-container').prepend(createTweetElement(tweet));
     })
   }
 }
@@ -71,10 +47,21 @@ $(function() {
   const $newTweetForm = $("#newTweetForm");
   $newTweetForm.submit(function(event) {
     event.preventDefault();
+    //check if the container exist / remove if it does
+    if($("#errorContainer")){
+      //re-set the focus on the text area
+      $("#tweetTxtArea").focus();
+      setTimeout(async () => {
+        await $("#errorContainer").slideUp();
+      }, 2500);
+    }
+
     if($("#tweetTxtArea").val() === "") {
-      alert("Please write some tweet!");
+      $("#errorMessage").text("Error: Please add a tweet!"); //set our h4 text to error of string being empty
+      $("#errorContainer").slideDown("slow");
     } else if ($("#tweetTxtArea").val().length > 140) {
-      alert("TOO LONG!");
+      $("#errorMessage").text("Error: Too long! You're only allowed 140 characters for a tweet!"); //set our h4 text to error of string length going over 140 characters
+      $("#errorContainer").slideDown("slow");
     } else {
       $.ajax({
         url: "/tweets/",
@@ -119,6 +106,5 @@ const loadLastTweet = async () => {
     console.error(error);
   }
 }
-
 
 loadTweets();

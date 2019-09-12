@@ -1,11 +1,15 @@
-header {
+header#profileHeader {
   height: 400px;
   width: 100%;
   margin-top: 120px;
+  background-color: #84ceeb;
+  background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+}
+
+div#imgHeader {
+  padding-top: 50px;
 }
 div.profile {
   display: flex;
   justify-content: center;
-  background-color: #84ceeb;
-  background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Disable viewport zooming -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -24,6 +26,7 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="scripts/hover.js"></script>
+    <script type="text/javascript" src="scripts/clickableElements.js"></script>
     
   </head>
 
@@ -35,14 +38,14 @@
           <span id="navTitle">tweeter</span>
           <div id="writeTweet">
             <span><strong>Write</strong> a new tweet</span><br>
-            <i class="fas fa-angle-double-down"></i>
+            <i id="iconBounce" class="fas fa-angle-double-down"></i>
           </div>
       </div>
     </nav>
 
-    <header>
-        <div class="profile">
-            <img src="/images/profile-hex.png"> 
+    <header id="profileHeader">
+        <div id="imgHeader" class="profile">
+            <img src="/images/doge.png"> 
         </div>
         <div class="profile">
             <h2>Karl Eisen Yabut</h2>
@@ -52,11 +55,18 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <!-- Create new tweet section-->
-        <section class="new-tweet">
+      <section class="new-tweet">
+          <!-- ERROR section to render here -->
+          <div id="errorContainer">
+            <div class="inlineContainer">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h4 id="errorMessage"></h4>
+            </div>
+          </div>
             <h2>Compose Tweet</h2>
             <form id="newTweetForm" method="POST" action="/tweets/">
               <div id="textAreaBorder">
-                <textarea id="tweetTxtArea" rows="2" name="text" placeholder="What are you humming about?"></textarea>
+                <textarea id="tweetTxtArea" rows="3" name="text" placeholder="What are you humming about?"></textarea>
               </div>
               <div id="btnAndSpan">
                 <input id="submitBtn" type="submit" value="Tweet">
