@@ -11,6 +11,34 @@ const escape = function(str) {
 }
 
 const createTweetElement = function(value) {
+  let tweetDate = value.created_at;
+  let today = new Date();
+  let differenceInMilisec = today.getTime() - tweetDate;
+
+  //date difference in "year/months/day/minute/seconds"
+  let diffInMin = Math.floor(differenceInMilisec / 60000);
+  let diffInSec = Math.floor(differenceInMilisec / 1000);
+  let diffInHour = Math.floor(diffInMin / 60);
+  let diffInDays = Math.floor(diffInHour / 24);
+  let diffInYear = Math.floor(diffInDays / 365);
+
+  //initial date to set
+  let createdAtTxt = diffInYear + " years ago";
+
+  //set approriate text to user
+  if(diffInYear <= 0) {
+    createdAtTxt = diffInDays + " days ago";
+    if(diffInDays <= 0) {
+      createdAtTxt = diffInHour + " hours ago";
+      if (diffInHour <= 0) {
+        createdAtTxt = diffInMin + " minutes ago";
+        if(diffInMin <= 0) {
+          createdAtTxt = diffInSec + " seconds ago";
+        }
+      }
+    }
+  }
+
   const $tweet = `
     <article class="tweet">
     <header>
@@ -23,7 +51,7 @@ const createTweetElement = function(value) {
 
     <footer>
       <div>
-        <span>${escape(value.created_at)}</span>
+        <span>${escape(createdAtTxt)}</span>
         <div id="tweetIcons">
           <i class="fas fa-flag fa-xs"></i>
           <i class="fas fa-retweet fa-xs"></i>
