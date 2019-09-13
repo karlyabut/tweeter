@@ -64,7 +64,7 @@ article.tweet div {
   margin-right: 10px;
 }
 
-/* re position my icon (was set as left: 50% from nav.css) */
+/* re-position my icon (was set as left: 50% from nav.css) */
 article.tweet i {
   left: 0px;
   color: #c3073f;

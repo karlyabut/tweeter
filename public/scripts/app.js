@@ -126,7 +126,6 @@ const loadLastTweet = async () => {
       type: "GET",
       dataType: "JSON"
     })
-    // console.log("====>", await response[response.length - 1]);
     $(document).ready(()=> {
       $('#tweets-container').prepend(createTweetElement(response[response.length - 1]));
     })

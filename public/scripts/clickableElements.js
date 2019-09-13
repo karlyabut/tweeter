@@ -1,7 +1,6 @@
 $(document).ready(function() {
   //scroll to a specific element (with animation)
   $("#writeTweet").click(function() {
-
     //set our text area to empty if toggled
     if(!$("#tweetTxtArea").val("")){
       $("#tweetTxtArea").val("");
