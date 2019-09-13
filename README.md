@@ -13,3 +13,8 @@ Tweeter is a simple, single-page Twitter clone.
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+!["Screenshot of the Desktop version"](https://github.com/karlyabut/tweeter/blob/master/docs/Tweeter-desktop.png)
+!["Screenshot of the Tablet version"](https://github.com/karlyabut/tweeter/blob/master/docs/Tweeter-tablet.png)
+!["Screenshot of the Tweets"](https://github.com/karlyabut/tweeter/blob/master/docs/Tweeter-tweets.png)
