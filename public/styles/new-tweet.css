@@ -26,7 +26,7 @@ span.counter {
 
 /* Error styling */
 div#errorContainer {
-  border: 5px solid #ff0000;
+  border: 5px solid #c3073f;
   display: none;
 }
 i.fa-exclamation-triangle {
@@ -37,6 +37,6 @@ div.inlineContainer h4, i.fa-exclamation-triangle {
   display: inline;
 }
 h4#errorMessage {
-  color: #ff0000;
+  color: #c3073f;
   margin-left: 1em;
 }
